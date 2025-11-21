@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GST Guide for Landlords</title>
+    <style>
+        :root {
+            --color-primary: #2E7D32;
+            --color-secondary: #1976D2;
+            --color-warning: #F57C00;
+            --color-danger: #C62828;
+            --color-light: #E8F5E9;
+            --color-light-blue: #E3F2FD;
+            --color-light-orange: #FFF3E0;
+            --color-text: #1B5E20;
+            --color-light-text: #558B2F;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #E8F5E9 0%, #E3F2FD 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 5px solid var(--color-primary);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+        
+        .card h2 {
+            color: var(--color-primary);
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .card h3 {
+            color: var(--color-secondary);
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .card p {
+            line-height: 1.8;
+            color: var(--color-text);
+            margin-bottom: 12px;
+            font-size: 1.05em;
+        }
+        
+        .emoji {
+            font-size: 1.5em;
+        }
+        
+        .scenario {
+            background: var(--color-light);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .scenario-title {
+            color: var(--color-primary);
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .scenario-content {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            line-height: 1.8;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+            margin: 20px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--color-secondary);
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .timeline-item::before {
+            content: '●';
+            position: absolute;
+            left: -45px;
+            color: var(--color-secondary);
+            font-size: 1.5em;
+        }
+        
+        .timeline-item-title {
+            font-weight: bold;
+            color: var(--color-secondary);
+            margin-bottom: 5px;
+        }
+        
+        .highlight {
+            background: #FFFACD;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--color-warning);
+            margin: 15px 0;
+        }
+        
+        .amount-box {
+            background: var(--color-light-blue);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 12px 0;
+            text-align: center;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: var(--color-secondary);
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .comparison-table th {
+            background: var(--color-primary);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: bold;
+        }
+        
+        .comparison-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #E0E0E0;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background: #F5F5F5;
+        }
+        
+        .action-box {
+            background: linear-gradient(135deg, #E8F5E9 0%, #E3F2FD 100%);
+            border: 2px solid var(--color-primary);
+            border-radius: 10px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        
+        .action-box h3 {
+            color: var(--color-primary);
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+        
+        .action-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .action-box li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .action-box li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--color-primary);
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .calculator-section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-top: 5px solid var(--color-warning);
+            margin-bottom: 30px;
+        }
+        
+        .calculator-section h2 {
+            color: var(--color-primary);
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .input-group label {
+            font-weight: bold;
+            color: var(--color-primary);
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+        
+        .input-group input {
+            padding: 12px 15px;
+            border: 2px solid var(--color-secondary);
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: bold;
+        }
+        
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 8px rgba(46, 125, 50, 0.3);
+        }
+        
+        .calculator-results {
+            background: var(--color-light-blue);
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 25px;
+        }
+        
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(25, 118, 210, 0.2);
+            font-size: 1.1em;
+        }
+        
+        .result-item:last-child {
+            border-bottom: none;
+        }
+        
+        .result-label {
+            font-weight: bold;
+            color: var(--color-text);
+        }
+        
+        .result-value {
+            color: var(--color-secondary);
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .result-item.total {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        
+        .result-item.total .result-value {
+            color: var(--color-danger);
+            font-size: 1.4em;
+        }
+        
+        .result-item.tds {
+            background: #FFF3E0;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        
+        .result-item.tds .result-value {
+            color: var(--color-warning);
+            font-size: 1.2em;
+        }
+        
+        .status-message {
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 1.1em;
+        }
+        
+        .status-message.below {
+            background: #C8E6C9;
+            color: #1B5E20;
+        }
+        
+        .status-message.above {
+            background: #FFCDD2;
+            color: #B71C1C;
+        }
+        
+        .footer {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            color: var(--color-text);
+            margin-top: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
+        .footer p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .card, .calculator-section, .footer {
+                page-break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-table {
+                font-size: 0.9em;
+            }
+            
+            .comparison-table td, .comparison-table th {
+                padding: 8px;
+            }
+            
+            .calculator-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Your GST & Property Rental Guide</h1>
+            <p>Understanding GST when your income crosses ₹20 Lakhs</p>
+        </header>
+        
+        <div class="scenario">
+            <div class="scenario-title"><span class="emoji">🏠</span> Your Current Situation</div>
+            <div class="scenario-content">
+                <p><strong>What you're doing now:</strong></p>
+                <ul style="margin-left: 20px; line-height: 2; font-size: 1.05em;">
+                    <li>Renting out a <strong>residential property</strong> to a company (for the director to live in)</li>
+                    <li>Planning to rent out a <strong>commercial property</strong> as well</li>
+                    <li>Currently <strong>NOT registered for GST</strong></li>
+                </ul>
+                <p style="margin-top: 15px; font-size: 1.05em;"><strong>Why? Because your total income is below ₹20 Lakhs per year.</strong></p>
+            </div>
+        </div>
+        
+        <div class="highlight">
+            <p style="margin: 0;"><strong>📊 Example Scenario:</strong></p>
+            <p style="margin-top: 10px; margin-bottom: 0;">Residential rent: ₹12 Lakhs/year | Commercial rent: ₹9 Lakhs/year | <strong>Total: ₹21 Lakhs</strong> ⚠️ EXCEEDS ₹20 LAKHS - GST registration mandatory!</p>
+        </div>
+        
+        <div class="grid">
+            <div class="card">
+                <h2><span class="emoji">💰</span> The Key Number: ₹20 Lakhs</h2>
+                <p>When your <strong>combined rental income</strong> from both properties reaches <strong>₹20 Lakhs per year</strong>, a big change happens...</p>
+                <div class="amount-box">
+                    ₹20,00,000
+                    <p style="font-size: 0.8em; margin-top: 5px; font-weight: normal;">This is the GST Registration Threshold</p>
+                </div>
+                <p><strong>Example:</strong> If you earn ₹12 Lakhs from residential + ₹10 Lakhs from commercial = ₹22 Lakhs total</p>
+                <p style="color: var(--color-danger); font-weight: bold;">➜ You MUST register for GST</p>
+            </div>
+            
+            <div class="card">
+                <h2><span class="emoji">⚠️</span> What Happens At ₹20 Lakhs?</h2>
+                <p>The moment you cross ₹20 Lakhs:</p>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-item-title">Registration Becomes Mandatory</div>
+                        <p>You must register within 30 days</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-item-title">You Become a "Registered Person"</div>
+                        <p>This changes how tax is calculated</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-item-title">New Tax Rules Apply</div>
+                        <p>Different for each property</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-item-title">File Monthly Returns</div>
+                        <p>New compliance obligations</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card" style="margin-bottom: 25px;">
+            <h2><span class="emoji">🏘️</span> What Happens to Your RESIDENTIAL Property?</h2>
+            
+            <h3>Current Situation (Before ₹20 Lakhs):</h3>
+            <div class="scenario">
+                <div class="scenario-content">
+                    <p>✓ <strong>NO GST</strong> is charged (it's exempt)</p>
+                    <p>✓ The company rents from you and <strong>handles all GST</strong> on their end (Reverse Charge Mechanism - RCM)</p>
+                    <p>✓ You receive full rent without collecting any tax</p>
+                    <p style="margin-top: 10px; background: #E8F5E9; padding: 10px; border-radius: 5px;"><strong>Example:</strong> If monthly rent is ₹1,00,000, you receive exactly ₹1,00,000. No GST.</p>
+                </div>
+            </div>
+            
+            <h3>After Registration (Above ₹20 Lakhs):</h3>
+            
+            <div style="background: #E3F2FD; border-radius: 10px; padding: 20px; margin: 15px 0;">
+                <h3 style="color: var(--color-secondary); margin-top: 0;">Company Continues Under RCM (Reverse Charge)</h3>
+                <div class="scenario" style="margin-top: 12px;">
+                    <div class="scenario-content">
+                        <p><strong>✅ How it works (RECOMMENDED):</strong></p>
+                        <ul style="margin-left: 20px; line-height: 1.8;">
+                            <li>Company continues to pay GST themselves (RCM)</li>
+                            <li>You don't collect or pay any GST</li>
+                            <li>You receive full rent amount - NO CHANGE</li>
+                            <li>Company issues self-invoice for GST</li>
+                        </ul>
+                        <p style="margin-top: 12px; background: white; padding: 10px; border-radius: 5px;"><strong>✅ This is SIMPLER - No extra work for you. Everything stays the same.</strong></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="highlight">
+                <p style="margin: 0;"><strong>✅ BEST OPTION FOR YOU:</strong> Residential property to company continues under RCM. No change needed. Company handles GST as before.</p>
+            </div>
+        </div>
+        
+        <div class="card" style="margin-bottom: 25px;">
+            <h2><span class="emoji">🏢</span> What Happens to Your COMMERCIAL Property?</h2>
+            
+            <h3>Current Situation (Before ₹20 Lakhs):</h3>
+            <div class="scenario">
+                <div class="scenario-content">
+                    <p>✓ <strong>18% GST</strong> applies (it's not exempt)</p>
+                    <p>✓ The tenant pays GST under RCM</p>
+                    <p>✓ You don't collect GST yourself</p>
+                    <p style="margin-top: 10px; background: #E8F5E9; padding: 10px; border-radius: 5px;"><strong>Example:</strong> If rent is ₹40,000, tenant pays ₹40,000 to you + ₹7,200 GST to government</p>
+                </div>
+            </div>
+            
+            <h3>After Registration (Above ₹20 Lakhs) - IMPORTANT CHANGE:</h3>
+            <div class="scenario">
+                <div class="scenario-content">
+                    <p><strong>⚠️ THIS CHANGES - Latest Amendment October 10, 2024:</strong></p>
+                    <p style="margin-top: 12px; background: #FFCDD2; padding: 12px; border-radius: 5px; font-weight: bold;">YOU MUST collect and pay GST (Forward Charge - FCM)</p>
+                    <p style="margin-top: 12px; font-size: 0.95em; background: #FFF9C4; padding: 10px; border-radius: 5px;"><strong>📋 Notification No. 09/2024:</strong> Once you're registered, you must use FCM for commercial property rentals. RCM no longer applies to registered landlords.</p>
+                    
+                    <p style="margin-top: 15px;"><strong>What You Do:</strong></p>
+                    <ul style="margin-left: 20px; margin-top: 8px; line-height: 2;">
+                        <li>Raise GST invoice showing 18% tax</li>
+                        <li>Collect rent + GST from tenant</li>
+                        <li>Pay GST to government monthly</li>
+                    </ul>
+                    
+                    <p style="margin-top: 15px;"><strong>The Numbers:</strong></p>
+                    <div style="background: white; padding: 12px; border-radius: 5px; margin-top: 8px;">
+                        <p>If monthly commercial rent is ₹40,000:</p>
+                        <p style="margin-left: 20px; margin-top: 5px;">Base Rent: ₹40,000</p>
+                        <p style="margin-left: 20px; color: var(--color-danger); font-weight: bold;">18% GST: ₹7,200</p>
+                        <p style="margin-left: 20px; margin-top: 5px; border-top: 2px solid #ddd; padding-top: 8px; font-weight: bold;">Total: ₹47,200</p>
+                        <p style="margin-left: 20px; margin-top: 8px; background: #FFEBEE; padding: 8px; border-radius: 5px; font-weight: bold;">You pay ₹7,200 GST to government</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card" style="margin-bottom: 25px; border-top-color: var(--color-warning);">
+            <h2><span class="emoji">📝</span> Latest GST Amendments (October 2024 - January 2025)</h2>
+            <div style="background: #FFF3E0; padding: 15px; border-radius: 8px; margin: 15px 0;">
+                <p><strong>📋 Notification No. 09/2024 - October 10, 2024:</strong></p>
+                <ul style="margin-left: 20px; line-height: 1.8; margin-top: 10px;">
+                    <li><strong>Registered landlords:</strong> MUST use FCM (Forward Charge) for commercial property</li>
+                    <li><strong>Unregistered landlords:</strong> Can use RCM for commercial property to registered tenants</li>
+                    <li><strong>Key point:</strong> Landlord's registration status determines the mechanism</li>
+                </ul>
+            </div>
+            <div style="background: #FFF3E0; padding: 15px; border-radius: 8px; margin: 15px 0;">
+                <p><strong>🔔 Clarification - January 16, 2025:</strong></p>
+                <ul style="margin-left: 20px; line-height: 1.8; margin-top: 10px;">
+                    <li>Composition scheme dealers: Can still use RCM on commercial property</li>
+                    <li>Normal registered persons: MUST use FCM (no choice)</li>
+                    <li>Residential property: RCM continues regardless of landlord registration status</li>
+                </ul>
+            </div>
+            <p style="font-size: 0.95em; color: var(--color-text); margin-top: 15px;"><strong>💼 Bottom Line:</strong> Once you register, commercial property taxes shift to FCM. Residential remains under RCM.</p>
+        </div>
+        
+        <div class="card" style="margin-bottom: 25px;">
+            <h2><span class="emoji">📋</span> Quick Comparison Table</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Property Type</th>
+                        <th>Before Registration<br>(&lt;₹20L)</th>
+                        <th>After Registration<br>(>₹20L)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Residential (to Company)</strong></td>
+                        <td>Company pays GST (RCM)</td>
+                        <td><strong>✓ SAME - Company continues RCM</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Commercial</strong></td>
+                        <td>Tenant pays GST (RCM)</td>
+                        <td><strong>🔴 CHANGES - You pay GST (FCM)</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>TDS @ 10%</strong></td>
+                        <td>If rent > ₹2.4L/year</td>
+                        <td><strong>Still applies - Same as before</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Your Paperwork</strong></td>
+                        <td>Minimal</td>
+                        <td><strong>Monthly GST returns needed</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="action-box">
+            <h3><span class="emoji">✅</span> What You Need to Do When Approaching ₹20 Lakhs</h3>
+            <ul>
+                <li><strong>Watch Your Income:</strong> Track when combined rent reaches ₹19-20 Lakhs</li>
+                <li><strong>Prepare Documents:</strong> Gather rent agreements and property details</li>
+                <li><strong>Meet Your CA:</strong> Consult 2-3 months before hitting ₹20 Lakhs</li>
+                <li><strong>Plan Registration:</strong> You have 30 days from crossing ₹20 Lakhs to register</li>
+                <li><strong>Notify Tenants:</strong> Tell commercial tenant about GST/FCM changes after registration</li>
+                <li><strong>Set Up System:</strong> Prepare to issue GST invoices and track TDS deductions</li>
+                <li><strong>Arrange Filing:</strong> Set up monthly/quarterly GST return filing with CA</li>
+                <li><strong>Plan Cash Flow:</strong> Account for TDS 10% deduction on all rent payments</li>
+            </ul>
+        </div>
+        
+        <div class="grid" style="margin-bottom: 25px;">
+            <div class="card">
+                <h2><span class="emoji">❓</span> Common Questions</h2>
+                
+                <h3>Q: Will my residential rent increase?</h3>
+                <p><strong>A:</strong> No. Company keeps handling GST under RCM. No change for you.</p>
+                
+                <h3>Q: Who pays GST on commercial after I register?</h3>
+                <p><strong>A:</strong> YOU must collect 18% GST and pay to government (FCM).</p>
+                
+                <h3>Q: What is TDS @ 10%?</h3>
+                <p><strong>A:</strong> Tenant deducts 10% from total rent. You receive less cash upfront. Applies when yearly rent exceeds ₹2.4L.</p>
+                
+                <h3>Q: Can I delay registration?</h3>
+                <p><strong>A:</strong> No. MUST register within 30 days. Penalties apply for late registration.</p>
+            </div>
+            
+            <div class="card">
+                <h2><span class="emoji">💡</span> Important Reminders</h2>
+                
+                <p style="background: #E3F2FD; padding: 12px; border-radius: 8px; margin-bottom: 15px;"><strong>📌 Remember:</strong> The ₹20 Lakh limit includes ALL rental income (both properties combined).</p>
+                
+                <p style="background: #E8F5E9; padding: 12px; border-radius: 8px; margin-bottom: 15px;"><strong>📌 Residential:</strong> Company continues RCM (no change for you).</p>
+                
+                <p style="background: #FFF3E0; padding: 12px; border-radius: 8px;"><strong>📌 Commercial:</strong> You'll collect GST after registration (FCM - latest rule).</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <h3 style="color: var(--color-primary); margin-bottom: 15px;">📞 Next Steps</h3>
+            <p><strong>1.</strong> Use the calculator above to check your current situation</p>
+            <p><strong>2.</strong> Track your rental income regularly</p>
+            <p><strong>3.</strong> When approaching ₹20 Lakhs, contact your CA immediately</p>
+            <p><strong>4.</strong> Plan your GST registration 2-3 months in advance</p>
+            <p style="margin-top: 20px; font-size: 0.9em; color: #666;">💻 You can print or download this as PDF using your browser's print function. The calculator will display correctly in the PDF.</p>
+        </div>
+    </div>
+    
+    <script>
+        function updateCalculator() {
+            const residential = parseFloat(document.getElementById('residential').value) || 0;
+            const commercial = parseFloat(document.getElementById('commercial').value) || 0;
+            const total = residential + commercial;
+            const tds = total * 0.10;
+            
+            document.getElementById('resResult').textContent = '₹' + residential.toLocaleString('en-IN');
+            document.getElementById('commResult').textContent = '₹' + commercial.toLocaleString('en-IN');
+            document.getElementById('totalResult').textContent = '₹' + total.toLocaleString('en-IN');
+            document.getElementById('tdsResult').textContent = '₹' + Math.round(tds).toLocaleString('en-IN');
+            
+            const statusDiv = document.getElementById('statusMessage');
+            if (total >= 2000000) {
+                statusDiv.className = 'status-message above';
+                statusDiv.innerHTML = '⚠️ YOUR INCOME EXCEEDS ₹20 LAKHS - GST REGISTRATION IS MANDATORY';
+            } else {
+                statusDiv.className = 'status-message below';
+                const remaining = 2000000 - total;
+                statusDiv.innerHTML = '✓ BELOW ₹20 LAKHS - NO GST REGISTRATION NEEDED YET<br>Additional income needed: ₹' + remaining.toLocaleString('en-IN');
+            }
+        }
+        
+        document.getElementById('residential').addEventListener('input', updateCalculator);
+        document.getElementById('commercial').addEventListener('input', updateCalculator);
+        
+        window.addEventListener('load', updateCalculator);
+    </script>
+</body>
+</html>
