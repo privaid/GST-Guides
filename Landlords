@@ -654,16 +654,6 @@
             </div>
         </div>
         
-        <div class="footer">
-            <h3 style="color: var(--color-primary); margin-bottom: 15px;">📞 Next Steps</h3>
-            <p><strong>1.</strong> Use the calculator above to check your current situation</p>
-            <p><strong>2.</strong> Track your rental income regularly</p>
-            <p><strong>3.</strong> When approaching ₹20 Lakhs, contact your CA immediately</p>
-            <p><strong>4.</strong> Plan your GST registration 2-3 months in advance</p>
-            <p style="margin-top: 20px; font-size: 0.9em; color: #666;">💻 You can print or download this as PDF using your browser's print function. The calculator will display correctly in the PDF.</p>
-        </div>
-    </div>
-    
     <script>
         function updateCalculator() {
             const residential = parseFloat(document.getElementById('residential').value) || 0;
